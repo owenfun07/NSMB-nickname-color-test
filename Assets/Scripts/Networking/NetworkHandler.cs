@@ -325,6 +325,9 @@ namespace NSMB.Networking {
                 Runner.Game.AddPlayer(new RuntimePlayer {
                     PlayerNickname = Settings.Instance.generalNickname ?? "noname",
                     UserId = Client.UserId,
+                    // The launcher supplies this only after the security API verifies Owen's account.
+                    // Other players and all ordinary access paths receive an empty string.
+                    NicknameColor = WebGLGameIdentityBridge.ConsumeNicknameColor(),
                     UseColoredNickname = Settings.Instance.generalUseNicknameColor,
                     Character = Settings.Instance.generalCharacter,
                     Palette = Settings.Instance.generalPalette,
